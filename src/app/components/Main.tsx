@@ -3,6 +3,7 @@ import { data } from "../data";
 import { CiPlay1 } from "react-icons/ci";
 import Image from 'next/image';
 import { FaCirclePlay } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function Main() {
   return (
@@ -54,7 +55,7 @@ export default function Main() {
                     facilis ea aut maxime magnam possimus accusantium tempore
                     deleniti officia amet?
                   </p>
-                  <a href="/" className=" uppercase flex gap-4 items-center">Read more <FaArrowRight/></a>
+                  <Link href="/" className=" uppercase flex gap-4 items-center">Read more <FaArrowRight/></Link>
                 </div>
               </div>
             </article>

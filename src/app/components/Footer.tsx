@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BsChat } from "react-icons/bs";
 
 export default function Footer() {
@@ -24,28 +25,28 @@ export default function Footer() {
                     <div>
                         <h1>About</h1>
                         <ul>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
                         </ul>
                     </div>
                     <div>
                         <h1>About</h1>
                         <ul>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
                         </ul>
                     </div>
                     <div>
                         <h1>About</h1>
                         <ul>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
-                            <a href="/">About us</a>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
+                            <Link href="/">About us</Link>
                         </ul>
                     </div>
                 </ul>
