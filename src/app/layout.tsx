@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className=" scroll-smooth scroll-p-24 ">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar/>
-        {children}
-        <Footer/>
-      </body>
-    </html>
+      <html lang="en" className=" scroll-smooth scroll-p-24 ">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <NavBar/>
+          {children}
+          <SpeedInsights/>
+          <Footer/>
+        </body>
+      </html>
   );
 }
