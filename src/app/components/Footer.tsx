@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="text-center space-y-6">
                     <h1 className=" uppercase text-yellow-500 font-bold">you dream it, we design it</h1>
                     <h1 className=" text-6xl w-200 mx-auto">We can build you the rooms of your dreams</h1>
-                    <button className=" px-6 py-4 bg-gray-800 rounded-full flex items-center gap-4 mx-auto">Let's chat now <BsChat/></button>
+                    <button className=" px-6 py-4 bg-gray-800 rounded-full flex items-center gap-4 mx-auto">Chat now <BsChat/></button>
                 </div>
             </section>
             <section className="flex">
