@@ -2,7 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { FaArrowRight, FaFacebook, FaYoutube } from "react-icons/fa";
-import { FaTwitter as FaXTwitter } from "react-icons/fa6"; // ตรงนี้เปลี่ยนจาก FaXTwitter เป็น FaTwitter
+import { FaTwitter as FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 
@@ -10,8 +10,8 @@ const NavItems = [
   { label: "Home", path: "#header" },
   { label: "Room", path: "#room" },
   { label: "Services", path: "#services" },
-  { label: "Promotion", path: "#promotion" },
-  { label: "Contact", path: "/" },
+  { label: "Preview", path: "#preview" },
+  { label: "Contact", path: "#contact" },
 ];
 
 export default function NavBar() {
@@ -35,12 +35,12 @@ export default function NavBar() {
       });
 
       // Auto Hide Navbar
-      if (currentScroll > lastScrollY.current && currentScroll > 100) {
-        setShow(false); // เลื่อนลง — ซ่อน
-      } else {
-        setShow(true); // เลื่อนขึ้น — โชว์
-      }
-      lastScrollY.current = currentScroll;
+      // if (currentScroll > lastScrollY.current && currentScroll > 100) {
+      //   setShow(false); 
+      // } else {
+      //   setShow(true); 
+      // }
+      // lastScrollY.current = currentScroll;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -63,7 +63,6 @@ export default function NavBar() {
         show ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* First section with icons and contacts */}
       <section className="p-2 max-w-7xl mx-auto">
         <ul className="grid grid-cols-2 gap-4 justify-between items-center text-sm">
           <section className="flex gap-4">
@@ -86,15 +85,14 @@ export default function NavBar() {
       </section>
       <hr className=" opacity-35"/>
 
-      {/* Navbar with Links */}
       <section className="flex justify-between items-center px-2 py-6 max-w-7xl mx-auto">
         <ul>
-          <Link href="/">Home</Link>
+          <Link href="/" className=" [font-family:var(--font-ovo)] text-2xl">HomeLive</Link>
         </ul>
         <div ref={navRef} className="relative flex justify-center gap-8 ">
           {NavItems.map(({ label, path }, index) => (
             <Link
-              key={`${path}-${index}`} // ใช้ key ที่มีความเฉพาะมากขึ้น
+              key={`${path}-${index}`}
               href={path}
               scroll={true}
               data-path={path.replace("#", "")}

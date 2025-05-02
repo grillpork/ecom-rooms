@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Ovo, Prompt } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
+// Font variables
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,6 +13,23 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const ovo = Ovo({
+  variable: "--font-ovo",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const prompt = Prompt({
+  variable: "--font-prompt",
+  subsets: ["thai", "latin"],
+  weight: ["400", "500", "700"], // เพิ่ม weight ที่คุณจะใช้
 });
 
 export const metadata: Metadata = {
@@ -25,14 +43,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en" className=" scroll-smooth scroll-p-24 ">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <NavBar/>
-          {children}
-          <Footer/>
-        </body>
-      </html>
+    <html
+      lang="en"
+      className="scroll-smooth scroll-p-24"
+    >
+      <body
+        className={`
+          ${geistSans.variable} 
+          ${geistMono.variable} 
+          ${inter.variable} 
+          ${ovo.variable} 
+          ${prompt.variable} 
+          antialiased
+        `}
+      >
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
