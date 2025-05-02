@@ -17,9 +17,7 @@ const NavItems = [
 export default function NavBar() {
   const [active, setActive] = useState("");
   const [style, setStyle] = useState({ left: 0, width: 0 });
-  const [show, setShow] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,13 +32,6 @@ export default function NavBar() {
         }
       });
 
-      // Auto Hide Navbar
-      // if (currentScroll > lastScrollY.current && currentScroll > 100) {
-      //   setShow(false); 
-      // } else {
-      //   setShow(true); 
-      // }
-      // lastScrollY.current = currentScroll;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -59,9 +50,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`fixed top-0 w-full shadow z-50 transition-transform duration-300 bg-black/20 backdrop-blur-2xl ${
-        show ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className="fixed top-0 w-full shadow z-50 transition-transform duration-300 bg-black/20 backdrop-blur-2xl "
     >
       <section className="p-2 max-w-7xl mx-auto">
         <ul className="grid grid-cols-2 gap-4 justify-between items-center text-sm">
