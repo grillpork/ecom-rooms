@@ -20,7 +20,7 @@ export default function NavBar() {
   const [active, setActive] = useState("");
   const [style, setStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const hdlBtn = () => { setIsOpen(!isOpen) }
 
@@ -110,7 +110,7 @@ export default function NavBar() {
           />
         </div>
 
-        <section onClick={hdlBtn} className=" flex flex-col gap-1.5 items-end">
+        <section onClick={hdlBtn} className=" flex md:hidden flex-col gap-1.5 items-end">
           <div className=" w-2 h-0.5 bg-white"></div>
           <div className=" w-6 h-0.5 bg-white"></div>
           <div className=" w-4 h-0.5 bg-white"></div>
@@ -118,28 +118,33 @@ export default function NavBar() {
 
 
       </section>
-      <div
-        className={`top-112 w-full h-fit   fixed z-50 origin-left transition-transform duration-500 ${isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+      {isOpen && (
+  <div
+    className={`fixed top-32 left-0 w-full bg-black py-8 z-40 transition-all duration-300 origin-top transform scale-y-100 opacity-100`}
+    style={{ transformOrigin: 'top' }}
+  >
+    <ul className="flex flex-col items-center gap-6">
+      {NavItems.map(({ label, path }, index) => (
+        <Link
+          key={`${path}-${index}`}
+          href={path}
+          scroll={true}
+          data-path={path.replace("#", "")}
+          className={`text-lg ${
+            active === path.replace("#", "")
+              ? "text-yellow-400"
+              : "text-white/70"
           }`}
-        style={{ transformOrigin: "bottom" }}
-      >
-        <ul className="flex flex-col gap-8 justify-end items-center h-full bg-neutral-900 py-12 rounded-t-4xl ">
-          {NavItems.map(({ label, path }, index) => (
-            <Link
-              key={`${path}-${index}`}
-              href={path}
-              scroll={true}
-              data-path={path.replace("#", "")}
-              className={`text-3xl ${active === path.replace("#", "")
-                  ? "text-gray-100"
-                  : "text-gray-100/50"
-                }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </ul>
-      </div>
+          onClick={() => setIsOpen(false)} // ปิดเมนูเมื่อคลิก
+        >
+          {label}
+        </Link>
+      ))}
+    </ul>
+  </div>
+)}
+
+      
     </div>
   );
 }

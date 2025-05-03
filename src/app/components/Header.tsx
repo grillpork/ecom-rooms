@@ -56,7 +56,6 @@ export default function Header() {
 
         <div
           className="w-full absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center flex flex-col gap-6 items-center"
-          data-aos="fade-left"
           key={selectedIndex} // trick เพื่อรีเฟรช AOS ทุกครั้งที่เปลี่ยนภาพ
         >
           <h1 className="font-bold text-[28px] md:text-7xl">{data[selectedIndex].name}</h1>
@@ -67,8 +66,7 @@ export default function Header() {
             <p className="text-base font-light">3D Design & Measurement</p>
           </article>
           <button
-            data-aos="fade-up"
-            data-aos-delay="200"
+           
             className="flex items-center gap-4 px-8 py-4 text-base bg-white text-black w-fit rounded-full cursor-pointer "
           >
             Visit Room <GoArrowRight />
@@ -76,7 +74,7 @@ export default function Header() {
         </div>
 
         {/* Arrows */}
-        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2 z-30">
+        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2 z-50">
           <button
             onClick={scrollPrev}
             className="bg-white/30 bg-opacity-50 hover:scale-120 p-3 rounded-full cursor-pointer text-white transition"
