@@ -1,6 +1,6 @@
 export const data = [
     {
-        name: "The First Room",
+        name: "First Room",
         detail: "Minimalist-style bedroom with a queen-size bed and plenty of natural light.",
         price: 1200,
         ImgUrl: '/room_1.jpg'
