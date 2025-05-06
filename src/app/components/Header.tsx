@@ -30,7 +30,7 @@ export default function Header() {
 
 
   return (
-    <header id="header" className="  w-full">
+    <header id="header" className=" w-full">
       <section className="relative overflow-hidden">
         {/* Carousel images */}
         <div className="overflow-hidden" ref={emblaRef}>
@@ -40,11 +40,10 @@ export default function Header() {
                 <Image
                   src={item.ImgUrl}
                   alt={item.name}
-                  sizes="(max-width: 768px) 100vw, 1280px"
+                  // sizes="(max-width: 768px) 100vw, 1280px"
                   width={1280}
                   height={500}
-                  className="object-cover w-full aspect-video brightness-50 contrast-125"
-                  // priority={index === 0}
+                  className="object-cover w-full  aspect-[9/16] md:h-screen brightness-50 contrast-125"
                   loading="lazy"
                 />
               </div>
