@@ -77,7 +77,7 @@ export default function NavBar() {
             <span className="hidden md:flex gap-2 items-center">
               <IoCall /> Call: 099-999-9999
             </span>
-            <span className="flex w-full gap-4 justify-center items-center uppercase p-2 bg-yellow-500 font-semibold text-black">
+            <span className="flex w-full gap-4 justify-center cursor-pointer items-center uppercase p-2 bg-yellow-500 font-semibold text-black">
               Book Appointment <FaArrowRight />
             </span>
           </section>

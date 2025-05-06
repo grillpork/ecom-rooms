@@ -5,8 +5,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 export default function Header() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -30,24 +28,24 @@ export default function Header() {
     onSelect();
   }, [emblaApi]);
 
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: false });
-  }, []);
 
   return (
     <header id="header" className="  w-full">
       <section className="relative overflow-hidden">
         {/* Carousel images */}
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
+          <div className="flex will-change-transform transform-gpu">
             {data.map((item, index) => (
               <div key={index} className="flex-[0_0_100%] min-w-0 relative">
                 <Image
                   src={item.ImgUrl}
                   alt={item.name}
+                  sizes="(max-width: 768px) 100vw, 1280px"
                   width={1280}
                   height={500}
-                  className="object-cover w-screen h-screen brightness-50 contrast-125"
+                  className="object-cover w-full aspect-video brightness-50 contrast-125"
+                  // priority={index === 0}
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -56,7 +54,6 @@ export default function Header() {
 
         <div
           className="w-full absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center flex flex-col gap-6 items-center"
-          key={selectedIndex} // trick เพื่อรีเฟรช AOS ทุกครั้งที่เปลี่ยนภาพ
         >
           <h1 className="font-bold text-[28px] md:text-7xl">{data[selectedIndex].name}</h1>
           <article>
@@ -66,7 +63,7 @@ export default function Header() {
             <p className="text-base font-light">3D Design & Measurement</p>
           </article>
           <button
-           
+
             className="flex items-center gap-4 px-8 py-4 text-base bg-white text-black w-fit rounded-full cursor-pointer "
           >
             Visit Room <GoArrowRight />
@@ -95,11 +92,10 @@ export default function Header() {
             <button
               key={index}
               onClick={() => scrollTo(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === selectedIndex
-                  ? "bg-white  outline-1 outline-offset-2"
-                  : "bg-gray-400"
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex
+                ? "bg-white  outline-1 outline-offset-2"
+                : "bg-gray-400"
+                }`}
             />
           ))}
         </div>

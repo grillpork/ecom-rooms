@@ -60,7 +60,7 @@ export default function Main() {
                data-aos-delay={index * 100}
               className="bg-neutral-600 group cursor-pointer">
               <div
-                className="space-y-56 md:space-y-96 p-8 group-hover:bg-center bg-cover transition-all duration-500"
+                className="space-y-56  p-8 group-hover:bg-center bg-cover transition-all duration-500"
                 style={{
                   backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url(${item.ImgUrl})`,
                 }}
@@ -93,7 +93,15 @@ export default function Main() {
                       data-aos="fade-up"
                       data-aos-delay={index * 100} 
                       className=" flex flex-col gap-6 justify-center items-center">
-                        <div className=" w-32 h-32 bg-gray-700  rounded-full"></div>
+                        <div className=" w-32 h-32 grid place-items-center bg-gray-700  rounded-full">
+                          <Image
+                            src={item.icon}
+                            alt={item.icon}
+                            loading="lazy"
+                            width={80}
+                            height={80}
+                          />
+                        </div>
                         <h1 className=" uppercase font-semibold">{item.title}</h1>
                         <p className="text-center text-gray-400 px-2 ">{item.details}</p>
                     </div>
@@ -124,22 +132,22 @@ export default function Main() {
 const serviceItems = [
     {
         title: "Full Services",
-        icon: "",
+        icon: "/responsible.png",
         details: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum facere ratione ipsum maxime. "
     },
     {
         title: "Dell Value",
-        icon: "",
+        icon: "/value-chain.png",
         details: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum facere ratione ipsum maxime. "
     },
     {
         title: "Partner",
-        icon: "",
+        icon: "/partner.png",
         details: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum facere ratione ipsum maxime. "
     },
     {
         title: "Integrity",
-        icon: "",
+        icon: "/computer.png",
         details: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum facere ratione ipsum maxime. "
     },
 ]
