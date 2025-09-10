@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer
   id="contact"
-  className="w-full bg-no-repeat bg-center bg-cover flex flex-col text-white"
+  className="w-full bg-no-repeat bg-center bg-cover flex flex-col text-white mt-24"
   style={{
     backgroundImage:
       "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(/room_1.jpg)"
@@ -67,7 +67,7 @@ export default function Footer() {
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-full md:w-auto px-4 py-2 text-black focus:outline-none"
+          className="w-full md:w-auto px-4 py-2 text-white focus:outline-none"
         />
         <button className="w-full sm:w-auto px-6 py-2 text-yellow-500 text-sm bg-gray-800 hover:bg-gray-900">
           SUBSCRIBE

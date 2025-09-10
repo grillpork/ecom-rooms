@@ -5,8 +5,8 @@ import { FaArrowRight, FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaTwitter as FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const NavItems = [
   { label: "Home", path: "#header" },
@@ -20,9 +20,11 @@ export default function NavBar() {
   const [active, setActive] = useState("");
   const [style, setStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const hdlBtn = () => { setIsOpen(!isOpen) }
+  const hdlBtn = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     AOS.init({
@@ -42,7 +44,6 @@ export default function NavBar() {
           setActive(id);
         }
       });
-
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -60,9 +61,7 @@ export default function NavBar() {
   }, [active]);
 
   return (
-    <div
-      className="fixed top-0 w-full shadow z-50 transition-transform duration-300 bg-black/20 backdrop-blur-2xl "
-    >
+    <div className="fixed top-0 w-full shadow z-50 transition-transform duration-300 bg-black/20 backdrop-blur-2xl ">
       <section className="p-2 max-w-7xl mx-auto">
         <ul className="grid grid-cols-2 gap-4 justify-between items-center text-sm">
           <section className="flex gap-4">
@@ -77,8 +76,10 @@ export default function NavBar() {
             <span className="hidden md:flex gap-2 items-center">
               <IoCall /> Call: 099-999-9999
             </span>
-            <span className="flex w-full gap-4 justify-center cursor-pointer items-center uppercase p-2 bg-yellow-500 font-semibold text-black">
-              Book Appointment <FaArrowRight />
+            <span className="flex w-full gap-4 justify-center cursor-pointer items-center uppercase p-3 bg-yellow-500 font-bold hover:scale-105 transition-all duration-150 text-black">
+              <Link href="/booking">
+                Book Appointment 
+              </Link>
             </span>
           </section>
         </ul>
@@ -87,19 +88,25 @@ export default function NavBar() {
 
       <section className="flex justify-between items-center px-2 py-6 max-w-7xl mx-auto">
         <ul>
-          <Link href="/" className=" [font-family:var(--font-ovo)] text-2xl">HomeLive</Link>
+          <Link href="/" className=" [font-family:var(--font-ovo)] text-2xl">
+            HomeLive
+          </Link>
         </ul>
-        <div ref={navRef} className="relative hidden md:flex justify-center gap-8 ">
+        <div
+          ref={navRef}
+          className="relative hidden md:flex justify-center gap-8 "
+        >
           {NavItems.map(({ label, path }, index) => (
             <Link
               key={`${path}-${index}`}
               href={path}
               scroll={true}
               data-path={path.replace("#", "")}
-              className={`text-lg ${active === path.replace("#", "")
+              className={`text-lg ${
+                active === path.replace("#", "")
                   ? "text-gray-100"
                   : "text-gray-100/50"
-                }`}
+              }`}
             >
               {label}
             </Link>
@@ -110,41 +117,40 @@ export default function NavBar() {
           />
         </div>
 
-        <section onClick={hdlBtn} className=" flex md:hidden flex-col gap-1.5 items-end">
+        <section
+          onClick={hdlBtn}
+          className=" flex md:hidden flex-col gap-1.5 items-end"
+        >
           <div className=" w-2 h-0.5 bg-white"></div>
           <div className=" w-6 h-0.5 bg-white"></div>
           <div className=" w-4 h-0.5 bg-white"></div>
         </section>
-
-
       </section>
       {isOpen && (
-  <div
-    className={`fixed top-32 left-0 w-full bg-black py-8 z-40 transition-all duration-300 origin-top transform scale-y-100 opacity-100`}
-    style={{ transformOrigin: 'top' }}
-  >
-    <ul className="flex flex-col items-center gap-6">
-      {NavItems.map(({ label, path }, index) => (
-        <Link
-          key={`${path}-${index}`}
-          href={path}
-          scroll={true}
-          data-path={path.replace("#", "")}
-          className={`text-lg ${
-            active === path.replace("#", "")
-              ? "text-yellow-400"
-              : "text-white/70"
-          }`}
-          onClick={() => setIsOpen(false)} // ปิดเมนูเมื่อคลิก
+        <div
+          className={`fixed top-32 left-0 w-full bg-black py-8 z-40 transition-all duration-300 origin-top transform scale-y-100 opacity-100`}
+          style={{ transformOrigin: "top" }}
         >
-          {label}
-        </Link>
-      ))}
-    </ul>
-  </div>
-)}
-
-      
+          <ul className="flex flex-col items-center gap-6">
+            {NavItems.map(({ label, path }, index) => (
+              <Link
+                key={`${path}-${index}`}
+                href={path}
+                scroll={true}
+                data-path={path.replace("#", "")}
+                className={`text-lg ${
+                  active === path.replace("#", "")
+                    ? "text-yellow-400"
+                    : "text-white/70"
+                }`}
+                onClick={() => setIsOpen(false)} // ปิดเมนูเมื่อคลิก
+              >
+                {label}
+              </Link>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

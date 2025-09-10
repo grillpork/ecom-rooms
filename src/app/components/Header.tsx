@@ -28,7 +28,6 @@ export default function Header() {
     onSelect();
   }, [emblaApi]);
 
-
   return (
     <header id="header" className=" w-full">
       <section className="relative overflow-hidden">
@@ -51,26 +50,30 @@ export default function Header() {
           </div>
         </div>
 
-        <div
-          className="w-full absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center flex flex-col gap-6 items-center"
-        >
-          <h1 className="font-bold text-[28px] md:text-7xl">{data[selectedIndex].name}</h1>
+        <div className="w-full absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center flex flex-col gap-6 items-center">
+          <h1 className="font-bold text-[28px] md:text-7xl">
+            {data[selectedIndex].name}
+          </h1>
           <article>
             <h2 className="text-base font-light">
               ${data[selectedIndex].price} Deposit
             </h2>
             <p className="text-base font-light">3D Design & Measurement</p>
           </article>
-          <button
-
-            className="flex items-center gap-4 px-8 py-4 text-base bg-white text-black w-fit rounded-full cursor-pointer "
-          >
-            Visit Room <GoArrowRight />
+          <button className="cursor-pointer bg-white px-6 py-3 rounded-full border-[1px] border-slate-500 text-white font-medium group">
+            <div className="relative overflow-hidden">
+              <p className="group-hover:-translate-y-7 text-sm text-black duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                Button
+              </p>
+              <p className="absolute top-7 left-0 group-hover:top-0 text-sm text-black duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                Button
+              </p>
+            </div>
           </button>
         </div>
 
         {/* Arrows */}
-        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2 z-50">
+        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2 z-30">
           <button
             onClick={scrollPrev}
             className="bg-white/30 bg-opacity-50 hover:scale-120 p-3 rounded-full cursor-pointer text-white transition"
@@ -91,10 +94,11 @@ export default function Header() {
             <button
               key={index}
               onClick={() => scrollTo(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex
-                ? "bg-white  outline-1 outline-offset-2"
-                : "bg-gray-400"
-                }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === selectedIndex
+                  ? "bg-white  outline-1 outline-offset-2"
+                  : "bg-gray-400"
+              }`}
             />
           ))}
         </div>
