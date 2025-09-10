@@ -1,7 +1,6 @@
 "use client";
 import { FaArrowRight } from "react-icons/fa";
 import { data } from "../data";
-import { CiPlay1 } from "react-icons/ci";
 import Image from "next/image";
 import { FaCirclePlay } from "react-icons/fa6";
 import Link from "next/link";
